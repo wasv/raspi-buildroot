@@ -42,6 +42,29 @@ done
 
 echo "dtparam=audio=1" >> "${BINARIES_DIR}/rpi-firmware/config.txt"
 
+cat << __EOF__ > "${BINARIES_DIR}/rpi-firmware/firstboot.sh"
+#!/bin/sh
+
+# Create a file named 'wifi 'with network info in the format SSID:PSK.
+#  Example: HomeWifi:MyPassword
+[ -e "/boot/wifi" ] && wpa_passphrase \$(cut -d: -f1 /boot/wifi) \$(cut -d: -f2 /boot/wifi) >> /etc/wpa_supplicant.conf && rm /boot/wifi
+
+# Create a file 'hostname' with desired hostname to set computer name.
+#  Example: myraspi
+[ -e "/boot/hostname" ] && hostnamectl set-hostname \$(</boot/hostname) && rm /boot/hostname
+
+# Create a file 'users' with desired usernames and passwords in the format username:password.
+#  Example: root:changethispassword
+if [ -e "/boot/users" ]; then
+    for account in \$(</boot/users); do
+        adduser -D \$(cut -d: -f1 <<<\$account)
+        chpasswd <<<\$account
+    done
+    rm /boot/users
+fi
+
+__EOF__
+
 # Pass an empty rootpath. genimage makes a full copy of the given rootpath to
 # ${GENIMAGE_TMP}/root so passing TARGET_DIR would be a waste of time and disk
 # space. We don't rely on genimage to build the rootfs image, just to insert a
