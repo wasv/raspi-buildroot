@@ -45,6 +45,8 @@ echo "dtparam=audio=1" >> "${BINARIES_DIR}/rpi-firmware/config.txt"
 cat << __EOF__ > "${BINARIES_DIR}/rpi-firmware/firstboot.sh"
 #!/bin/sh
 
+[ -e "/boot/expand-rootfs" ] && rm /boot/expand-rootfs && /usr/lib/firstboot/resize-rootfs.sh
+
 # Create a file named 'wifi 'with network info in the format SSID:PSK.
 #  Example: HomeWifi:MyPassword
 [ -e "/boot/wifi" ] && wpa_passphrase \$(cut -d: -f1 /boot/wifi) \$(cut -d: -f2 /boot/wifi) >> /etc/wpa_supplicant.conf && rm /boot/wifi
