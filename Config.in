@@ -1,0 +1,6 @@
+source "$BR2_EXTERNAL_RPI_ZW_MIN_PATH/packages/python-mopidy/Config.in"
+source "$BR2_EXTERNAL_RPI_ZW_MIN_PATH/packages/python-mopidy-jellyfin/Config.in"
+source "$BR2_EXTERNAL_RPI_ZW_MIN_PATH/packages/python-mopidy-alsamixer/Config.in"
+source "$BR2_EXTERNAL_RPI_ZW_MIN_PATH/packages/python-mopidy-musicbox-webclient/Config.in"
+source "$BR2_EXTERNAL_RPI_ZW_MIN_PATH/packages/python-pykka/Config.in"
+source "$BR2_EXTERNAL_RPI_ZW_MIN_PATH/packages/python-unidecode/Config.in"

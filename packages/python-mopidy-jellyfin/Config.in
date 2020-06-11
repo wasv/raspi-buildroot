@@ -1,0 +1,12 @@
+config BR2_PACKAGE_PYTHON_MOPIDY_JELLYFIN
+	bool "python-mopidy-jellyfin"
+	select BR2_PACKAGE_PYTHON_MOPIDY # runtime
+	select BR2_PACKAGE_PYTHON_PYKKA # runtime
+	select BR2_PACKAGE_PYTHON_REQUESTS # runtime
+	select BR2_PACKAGE_PYTHON_SETUPTOOLS # runtime
+	select BR2_PACKAGE_PYTHON_UNIDECODE # runtime
+	select BR2_PACKAGE_PYTHON_WEBSOCKET_CLIENT # runtime
+	help
+	  Mopidy extension for playing music from jellyfin.
+
+	  https://github.com/jellyfin/mopidy-jellyfin

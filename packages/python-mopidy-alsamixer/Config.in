@@ -1,0 +1,10 @@
+config BR2_PACKAGE_PYTHON_MOPIDY_ALSAMIXER
+	bool "python-mopidy-alsamixer"
+	select BR2_PACKAGE_PYTHON_MOPIDY # runtime
+	select BR2_PACKAGE_PYTHON_PYKKA # runtime
+	select BR2_PACKAGE_PYTHON_SETUPTOOLS # runtime
+	select BR2_PACKAGE_PYTHON_ALSAAUDIO # runtime
+	help
+	  Mopidy extension for ALSA volume control
+
+	  https://github.com/mopidy/mopidy-alsamixer

@@ -1,0 +1,4 @@
+config BR2_PACKAGE_PYTHON_UNIDECODE
+	bool "python-unidecode"
+	help
+	  ASCII transliterations of Unicode text.

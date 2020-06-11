@@ -1,0 +1,10 @@
+config BR2_PACKAGE_PYTHON_MOPIDY
+	bool "python-mopidy"
+	select BR2_PACKAGE_PYTHON_PYKKA # runtime
+	select BR2_PACKAGE_PYTHON_REQUESTS # runtime
+	select BR2_PACKAGE_PYTHON_SETUPTOOLS # runtime
+	select BR2_PACKAGE_PYTHON_TORNADO # runtime
+	help
+	  Mopidy is an extensible music server written in Python
+
+	  https://mopidy.com
