@@ -7,6 +7,11 @@ Buildroot external tree for a small footprint Raspberry Pi Zero W image.
 build-essential libncurses5-dev rsync cpio python unzip bc wget git
 ```
 
+## Dependencies (Fedora)
+```
+gcc g++ patch file make perl-ExtUtils-MakeMaker perl-Thread-Queue ncurses-devel rsync cpio python3 unzip bc wget git
+```
+
 ## Build Instructions
 ```bash
 mkdir raspi-0w-build && cd raspi-0w-build
